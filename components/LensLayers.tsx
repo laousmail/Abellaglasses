@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { LAYERS } from '@/lib/content';
 import { loadGsap, prefersReducedMotion } from '@/lib/gsap';
 
@@ -12,7 +12,7 @@ export default function LensLayers({ as: Heading = 'h2', navDark = false }: { as
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (prefersReducedMotion()) return;
     let ctx: { revert: () => void } | undefined;
     let cancelled = false;

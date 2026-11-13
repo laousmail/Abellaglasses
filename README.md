@@ -24,3 +24,7 @@ npm run typecheck
 - Without JavaScript or WebGL, the hero shows the static SVG glasses and all content stays readable.
 - `prefers-reduced-motion`: no pinning, no idle animation, no reveal.
 - GA4 events fire only if `window.gtag` exists. Nothing loads analytics yet (it needs Loi 25 consent first).
+
+## Preview on GitHub Pages
+`.github/workflows/pages.yml` builds a static copy of the site (`PAGES_BASE_PATH=/<repo>`) and publishes it on every push to `main`.
+One-time setup: GitHub → Settings → Pages → Source: **GitHub Actions**. Production hosting stays on Vercel (normal build, with security headers).

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { loadGsap, prefersReducedMotion } from '@/lib/gsap';
 import type { GlassesState } from '@/lib/glasses3d';
 
@@ -32,7 +32,7 @@ export default function Hero() {
   }, []);
 
   /* Scroll story: pinned hero, glasses turn, lenses tint amber. Skipped with reduced motion. */
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (prefersReducedMotion()) return;
     let ctx: { revert: () => void } | undefined;
     let cancelled = false;

@@ -15,7 +15,12 @@ const csp = [
   "form-action 'self'",
 ].join('; ');
 
-const nextConfig: NextConfig = {
+// GitHub Pages preview: static export served under /<repo>/. Vercel (production) uses the normal build.
+const pagesBase = process.env.PAGES_BASE_PATH; // e.g. "/Abellaglasses"
+
+const nextConfig: NextConfig = pagesBase !== undefined
+  ? { output: 'export', basePath: pagesBase, trailingSlash: true, images: { unoptimized: true } }
+  : {
   poweredByHeader: false,
   async headers() {
     return [
